@@ -1,5 +1,8 @@
 # flintlockmedia.co.uk
 
+Note that the files present on flintlockmedia.co.uk are build files, which are not present on github.
+
+
 --------------------------------------------------------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
