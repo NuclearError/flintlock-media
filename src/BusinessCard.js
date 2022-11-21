@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css, jsx } from "@emotion/core";
 
-import theme from './theme';
+import theme from "./theme";
 
 const sectionStyle = css`
   padding: ${theme.spacing.sm}px;
   background-color: ${theme.colors.greyCard};
   border-radius: 2px;
   border: 1px solid ${theme.colors.base.black};
-  height: ${theme.spacing.baseDimension - (theme.spacing.sm * 2)}px 
+  height: ${theme.spacing.baseDimension - theme.spacing.sm * 2}px 
   overflow: hidden;
 `;
 
@@ -36,16 +36,19 @@ const h3Style = css`
   line-height: ${theme.fonts.lineHeight.h3};
 `;
 
-const gifAltText = `"Modern Times". A story of industry, of individual enterprise - humanity crusading in the pursuit of happiness.`
+const gifAltText = `A still from the 1936 Charlie Chaplin film "Modern Times" showing white text laid over an old-fashioned clockface with Roman numerals. The text reads 'A story of industry, of individual enterprise - humanity crusading in the pursuit of happiness.'`;
 
-const BusinessCard = () => (
+export const BusinessCard = () => (
   <React.Fragment>
-  <section role="main" css={sectionStyle}>
-    <img css={css`width: 100%`} src='img/modern_times.gif' alt={gifAltText} />
-    <h1 css={[headingStyle, h1Style]}>Flintlock Media</h1>
-  </section>
+    <section role="main" css={sectionStyle}>
+      <img
+        css={css`
+          width: 100%;
+        `}
+        src="img/modern_times.gif"
+        alt={gifAltText}
+      />
+      <h1 css={[headingStyle, h1Style]}>Flintlock Media</h1>
+    </section>
   </React.Fragment>
 );
-
-export default BusinessCard;
-

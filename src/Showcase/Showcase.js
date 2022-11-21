@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css, jsx } from "@emotion/core";
 
-import theme from '../theme';
+import theme from "../theme";
 
-import showcaseData from './showcaseData';
-import ShowcaseItem from './ShowcaseItem';
+import showcaseData from "./showcaseData";
+import ShowcaseItem from "./ShowcaseItem";
 
 const listStyle = css`
   margin: 0;
@@ -17,11 +17,11 @@ const listItemStyle = css`
   padding: 0;
 `;
 
-const Showcase = () => {
+export const Showcase = () => {
   return (
-  <section>
-    <ul css={listStyle}>
-      {showcaseData.map(item => (
+    <section>
+      <ul css={listStyle}>
+        {showcaseData.map((item) => (
           <li key={item.title} css={listItemStyle}>
             <ShowcaseItem
               backgroundColor={item.backgroundColor}
@@ -31,10 +31,8 @@ const Showcase = () => {
               url={item.url}
             />
           </li>
-        ))
-      }
-    </ul>
-  </section>
-)};
-
-export default Showcase;
+        ))}
+      </ul>
+    </section>
+  );
+};

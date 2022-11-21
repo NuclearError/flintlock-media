@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css, jsx } from "@emotion/core";
 
-import theme from './theme';
+import theme from "./theme";
 
 const wrapperStyle = css`
   margin: 0;
@@ -13,12 +13,9 @@ const wrapperStyle = css`
   }
 `;
 
-const Wrapper = ({ children }) => {
-  return (
-  <div css={wrapperStyle}>
-    {children}
-  </div>
-)};
+export const Wrapper = ({ children }) => {
+  return <div css={wrapperStyle}>{children}</div>;
+};
 
 Wrapper.defaultProps = {
   children: null,
@@ -27,5 +24,3 @@ Wrapper.defaultProps = {
 Wrapper.propTypes = {
   children: PropTypes.node,
 };
-
-export default Wrapper;
