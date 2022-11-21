@@ -7,7 +7,6 @@ import theme from "../../theme";
 
 const articleStyle = css`
   padding: ${theme.spacing.sm}px;
-  background-color: ${theme.colors.greyTitleCard};
   border-radius: 2px;
   border: 1px solid ${theme.colors.base.black};
   height: ${theme.spacing.baseDimension - theme.spacing.sm * 2}px 
@@ -22,6 +21,11 @@ const headingStyle = css`
   line-height: ${theme.fonts.lineHeight.h2};
   color: ${theme.colors.greyText};
   text-align: center;
+  &:hover,
+  &:focus,
+  &:active {
+    color: ${theme.colors.greyTextHover};
+  }
 `;
 
 const paraStyle = css`
@@ -34,12 +38,12 @@ const paraStyle = css`
 `;
 
 const linkStyle = css`
-  color: ${theme.colors.base.black};
   text-decoration: none;
   &:hover,
   &:focus,
   &:active {
-    color: ${theme.colors["alt-pink"]};
+    color: ${theme.colors.greyText};
+    text-decoration: underline dotted;
   }
 `;
 
