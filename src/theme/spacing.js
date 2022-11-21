@@ -10,9 +10,3 @@ export default {
   xxl: base * 9, // 45
   baseDimension: 256,
 };
-
-// $space-xs: 5px;
-// $space-sm: 10px;
-// $space-md: 15px;
-// $space-lg: 20px;
-// $space-xl: 25px;

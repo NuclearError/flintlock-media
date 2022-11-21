@@ -1,7 +1,7 @@
 export default {
-  xs: '320px',
-  sm: '480px',
-  md: '640px',
-  lg: '800px',
-  xl: '960px',
+  xs: "320px",
+  sm: "640px",
+  md: "960px",
+  lg: "1280px",
+  xl: "1600px",
 };
