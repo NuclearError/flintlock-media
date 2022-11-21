@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO: make a proper error page
+
 function ErrorPage() {
   return (
     <div className="error">
