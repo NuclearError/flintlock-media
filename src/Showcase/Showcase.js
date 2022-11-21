@@ -27,7 +27,8 @@ export const Showcase = () => {
               backgroundColor={item.backgroundColor}
               title={item.title}
               description={item.description}
-              emoji={item.emoji}
+              gif={item.gif}
+              altText={item.altText}
               url={item.url}
             />
           </li>

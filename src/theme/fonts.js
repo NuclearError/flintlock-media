@@ -2,7 +2,7 @@ export default {
   family: {
     serif:
       'Baskerville,"Baskerville Old Face","Hoefler Text",Garamond,"Times New Roman",serif;',
-    "sans-serif": "Gill Sans,Gill Sans MT,Calibri,sans-serif;",
+    "sans-serif": "Futura, Trebuchet MS, Arial, sans-serif;",
   },
   size: {
     base: "18px",

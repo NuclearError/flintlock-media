@@ -26,15 +26,15 @@ const h1Style = css`
   color: ${theme.colors.greyText};
 `;
 
-const h2Style = css`
-  font-size: ${theme.fonts.size.h2};
-  line-height: ${theme.fonts.lineHeight.h1};
-`;
+// const h2Style = css`
+//   font-size: ${theme.fonts.size.h2};
+//   line-height: ${theme.fonts.lineHeight.h1};
+// `;
 
-const h3Style = css`
-  font-size: ${theme.fonts.size.h3};
-  line-height: ${theme.fonts.lineHeight.h3};
-`;
+// const h3Style = css`
+//   font-size: ${theme.fonts.size.h3};
+//   line-height: ${theme.fonts.lineHeight.h3};
+// `;
 
 const gifAltText = `A still from the 1936 Charlie Chaplin film "Modern Times" showing white text laid over an old-fashioned clockface with Roman numerals. The text reads 'A story of industry, of individual enterprise - humanity crusading in the pursuit of happiness.'`;
 

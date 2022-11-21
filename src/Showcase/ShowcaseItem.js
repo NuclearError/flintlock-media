@@ -1,3 +1,4 @@
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
@@ -14,21 +15,22 @@ const articleStyle = css`
 `;
 
 const headingStyle = css`
-  margin: 0;
+  margin: 5px 0 10px;
   font-weight: normal;
   font-family: ${theme.fonts.family.serif};
-  font-size: ${theme.fonts.size.h2};
+  font-size: ${theme.fonts.size.h1};
   line-height: ${theme.fonts.lineHeight.h2};
   color: ${theme.colors.greyText};
   text-align: center;
 `;
 
 const paraStyle = css`
-  margin: 0;
+  margin: 0 0 10px;
   font-weight: normal;
   font-family: ${theme.fonts.family["sans-serif"]};
   font-size: ${theme.fonts.size.base};
   line-height: ${theme.fonts.lineHeight.base};
+  text-align: center;
 `;
 
 const linkStyle = css`
@@ -40,8 +42,6 @@ const linkStyle = css`
     color: ${theme.colors["alt-pink"]};
   }
 `;
-
-const gifAltText = `A still from the 1936 Charlie Chaplin film "Modern Times" showing white text laid over an old-fashioned clockface with Roman numerals. The text reads 'A story of industry, of individual enterprise - humanity crusading in the pursuit of happiness.'`;
 
 const ShowcaseItem = ({
   backgroundColor,
@@ -60,28 +60,29 @@ const ShowcaseItem = ({
     ]}
   >
     <header>
-      <img
-        css={css`
-          width: 100%;
-        `}
-        // src="img/newspaper.gif"
-        src={`img/${gif}.gif`}
-        alt={altText}
-      />
       {url ? (
+        // TODO: use described By to make sure everything has proper audio descriptions
         <a href={url} css={linkStyle}>
-          <h3 css={headingStyle}>
-            {/* {emoji ? <span css={[spanStyle, emojiStyle]}>{emoji}</span> : null}
-            <span css={[spanStyle, titleStyle]}>{title}</span> */}
-            {title}
-          </h3>
+          <img
+            css={css`
+              width: 100%;
+            `}
+            src={`img/${gif}.gif`}
+            alt={altText}
+          />
+          <h2 css={headingStyle}>{title}</h2>
         </a>
       ) : (
-        <h3 css={headingStyle}>
-          {/* {emoji ? <span css={[spanStyle, emojiStyle]}>{emoji}</span> : null}
-          <span css={[spanStyle, titleStyle]}>{title}</span> */}
-          {title}
-        </h3>
+        <Fragment>
+          <img
+            css={css`
+              width: 100%;
+            `}
+            src={`img/${gif}.gif`}
+            alt={altText}
+          />
+          <h3 css={headingStyle}>{title}</h3>
+        </Fragment>
       )}
     </header>
     {description ? <p css={paraStyle}>{description}</p> : null}
