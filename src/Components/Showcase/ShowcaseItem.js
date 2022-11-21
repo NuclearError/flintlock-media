@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+/** @jsxImportSource @emotion/react */
+import { css, jsx } from "@emotion/react";
 
-import theme from "../theme";
+import theme from "../../theme";
 
 const articleStyle = css`
   padding: ${theme.spacing.sm}px;

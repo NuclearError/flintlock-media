@@ -1,8 +1,8 @@
 import React from "react";
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+/** @jsxImportSource @emotion/react */
+import { css, jsx } from "@emotion/react";
 
-import theme from "./theme";
+import theme from "../theme";
 
 const sectionStyle = css`
   padding: ${theme.spacing.sm}px;

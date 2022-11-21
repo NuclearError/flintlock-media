@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Showcase } from "./Showcase/Showcase";
-import { Wrapper } from "./Wrapper";
-import { BusinessCard } from "./BusinessCard";
+import { Showcase } from "../Components/Showcase/Showcase";
+import { Wrapper } from "../Components/Wrapper";
+import { BusinessCard } from "../Components/BusinessCard";
 
 function App() {
   return (

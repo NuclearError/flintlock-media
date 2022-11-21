@@ -1,7 +1,7 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+/** @jsxImportSource @emotion/react */
+import { css, jsx } from "@emotion/react";
 
-import theme from "../theme";
+import theme from "../../theme";
 
 import showcaseData from "./showcaseData";
 import ShowcaseItem from "./ShowcaseItem";

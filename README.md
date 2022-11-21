@@ -2,8 +2,9 @@
 
 Note that the files present on flintlockmedia.co.uk are build files, which are not present on github.
 
+Routing was done with [Create Browser Router](https://reactrouter.com/en/main/routers/create-browser-router).
 
---------------------------------------------------------------------
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -28,7 +29,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ```
 yarn build
-yarn global add serve 
+yarn global add serve
 serve -s build
 ```
 

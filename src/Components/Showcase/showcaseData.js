@@ -1,4 +1,4 @@
-import theme from "../theme";
+import theme from "../../theme";
 
 export default [
   {
@@ -8,7 +8,7 @@ export default [
     gif: "newspaper",
     altText:
       "From the 1936 Charlie Chaplin film 'Modern Times', someone languidly reading 'The Daily News' newspaper; their face is hidden. The news headline reads 'Strikes and riots! Breadlines broken by unruly mob'",
-    url: "http://flintlockmedia.co.uk/newsfeed",
+    url: "/newsfeed",
     backgroundColor: theme.colors.greyContentCard,
   },
   // (this is just to test what a big list looks like)
