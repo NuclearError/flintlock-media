@@ -39,16 +39,14 @@ const h1Style = css`
 const gifAltText = `A still from the 1936 Charlie Chaplin film "Modern Times" showing white text laid over an old-fashioned clockface with Roman numerals. The text reads 'A story of industry, of individual enterprise - humanity crusading in the pursuit of happiness.'`;
 
 export const BusinessCard = () => (
-  <React.Fragment>
-    <section role="main" css={sectionStyle}>
-      <img
-        css={css`
+  <section role="main" css={sectionStyle}>
+    <img
+      css={css`
           width: 100%;
         `}
-        src="img/modern_times.gif"
-        alt={gifAltText}
-      />
-      <h1 css={[headingStyle, h1Style]}>Flintlock Media</h1>
-    </section>
-  </React.Fragment>
+      src="img/modern_times.gif"
+      alt={gifAltText}
+    />
+    <h1 css={[headingStyle, h1Style]}>Flintlock Media</h1>
+  </section>
 );

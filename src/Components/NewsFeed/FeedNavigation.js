@@ -8,7 +8,7 @@ import { FeedListItem } from "./FeedListItem.tsx";
 
 import { FeedStyle } from "./styles";
 
-export const Feed = () => {
+export const FeedNavigation = () => {
   // TODO: Let user choose feed
   const [currentFeed, setCurrentFeed] = useState(
     "https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss"
@@ -43,14 +43,14 @@ export const Feed = () => {
   };
 
   return (
-    <section className="Feed" css={css(FeedStyle)}>
-      <header className="Feed__header">
+    <section className="FeedNavigation" css={css(FeedStyle)}>
+      <header className="FeedNavigation__header">
         <p>
           Current feed source: <strong>{currentFeed}</strong>
         </p>
       </header>
-      <section className="Feed__listContainer">
-        <ul className="Feed__list">
+      <section className="FeedNavigation__listContainer">
+        <ul className="FeedNavigation__list">
           {feedItems.length > 0 &&
             feedItems.map((item) => (
               <FeedListItem key={item.title} item={item} />
