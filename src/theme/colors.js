@@ -9,7 +9,9 @@ export default {
 
   greyText: "#e4e4e4",
   greyTextHover: "#fbfbfb",
+  greyTitleCardHover: "#8b8b8b",
   greyTitleCard: "#6f6f6f",
   greyContentCard: "#4b4b4b",
   greyBackground: "#a0a0a0",
+  greyDark: "#202020",
 };

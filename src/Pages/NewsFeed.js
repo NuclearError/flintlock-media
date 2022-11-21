@@ -3,7 +3,7 @@ import { FeedNavigation } from "../Components/NewsFeed/FeedNavigation";
 
 function NewsFeed() {
   return (
-    <div className="newsfeed">
+    <div className="feed">
       <FeedNavigation />
     </div>
   );

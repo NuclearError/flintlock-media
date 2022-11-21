@@ -4,59 +4,69 @@ import { css, jsx } from "@emotion/react";
 
 import { getRssData } from "./Methods/getRssData";
 import { processNasaImages } from "./Methods/processNasaImages";
-import { FeedListItem } from "./FeedListItem.tsx";
+import { processBellingcat } from "./Methods/processBellingcat";
+import { processAwkwardFamilyPhotos } from "./Methods/processAwkwardFamilyPhotos";
+import { FeedList } from "./FeedList";
+import feedOptions from "./feedOptions";
 
-import { FeedStyle } from "./styles";
+import { FeedWrapperStyle, FeedHeaderStyle, FeedButtonContainer, FeedButton } from "./styles";
 
 export const FeedNavigation = () => {
-  // TODO: Let user choose feed
   const [currentFeed, setCurrentFeed] = useState(
     "https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss"
+  ); // current feed source
+  const [currentProcessingFunction, setCurrentProcessingFunction] = useState(
+    "processNasaImages"
   ); // current feed source
   const [items, setItems] = useState([]); // raw items
   const [feedItems, setFeedItems] = useState([]); // processed items
 
   useEffect(() => {
-    // TODO: figure out why the hell useEffect on page load runs twice
-    console.log("useEffect #1: should run ONCE on load");
     // remember that getRssData is an async function so you need a '.then'
     getRssData(currentFeed).then((result) => {
       setItems(result);
     });
-  }, []); // run once on load
+  }, [currentFeed]);
 
   useEffect(() => {
-    console.log(
-      "useEffect #2: should run when items are updated. items[0] = ",
-      items[0]
-    );
-    processFeedData(items);
-  }, [items]);
+    processFeedData(items, currentProcessingFunction);
+    console.log("items[0]: ", items[0])
+  }, [items, currentProcessingFunction]);
 
-  const processFeedData = (data) => {
-    // TODO: do some logic here about what the currentFeed is: it could be loads of options.
-    // here we pretend that nasa image rss was dynamically chosen.
-    // then we set the feed items by calling the relevant processing function
-    // https://marcosc.com/2012/03/dynamic-function-names-in-javascript/
-    const relevantProcessing = processNasaImages(data);
+  // TODO: figure out if there's a better way to do this
+  const processNasaImages1 = (data) => {
+    return processNasaImages(data);
+  }
+  const processBellingcat1 = (data) => {
+    return processBellingcat(data);
+  }
+  const processAwkwardFamilyPhotos1 = (data) => {
+    return processAwkwardFamilyPhotos(data);
+  }
+
+  const processFeedData = (data, functionName) => {
+    const relevantProcessing = eval(`${functionName}1(data)`);
     setFeedItems(relevantProcessing);
   };
 
+  const handleClick = (event, rss) => {
+    setCurrentFeed(rss.url);
+    setCurrentProcessingFunction(rss.functionName);
+  }
+
   return (
-    <section className="FeedNavigation" css={css(FeedStyle)}>
-      <header className="FeedNavigation__header">
-        <p>
-          Current feed source: <strong>{currentFeed}</strong>
-        </p>
+    <section css={css(FeedWrapperStyle)}>
+      <header css={css(FeedHeaderStyle)}>
+        <div css={css(FeedButtonContainer)}>
+          {feedOptions.map((option) => {
+            return (
+              <button css={css(FeedButton)} key={option.name} onClick={(event) => handleClick(event, option)}>{option.buttonLabel}</button>
+            )
+          }
+          )}
+        </div>
       </header>
-      <section className="FeedNavigation__listContainer">
-        <ul className="FeedNavigation__list">
-          {feedItems.length > 0 &&
-            feedItems.map((item) => (
-              <FeedListItem key={item.title} item={item} />
-            ))}
-        </ul>
-      </section>
+      <FeedList feedItems={feedItems} />
     </section>
   );
 };
