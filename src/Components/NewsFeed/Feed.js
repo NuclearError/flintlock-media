@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
+/** @jsxImportSource @emotion/react */
+import { css, jsx } from "@emotion/react";
+
 import { getRssData } from "./Methods/getRssData";
 import { processNasaImages } from "./Methods/processNasaImages";
 import { FeedListItem } from "./FeedListItem.tsx";
+
+import { FeedStyle } from "./styles";
 
 export const Feed = () => {
   // TODO: Let user choose feed
@@ -38,7 +43,7 @@ export const Feed = () => {
   };
 
   return (
-    <section className="Feed">
+    <section className="Feed" css={css(FeedStyle)}>
       <header className="Feed__header">
         <p>
           Current feed source: <strong>{currentFeed}</strong>
