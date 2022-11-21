@@ -4,13 +4,14 @@
   "homepage": "http://www.flintlockmedia.co.uk",
   "main": "index.html",
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "11.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "3.0.1"
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "@emotion/core": "^10.0.10",
     "prop-types": "^15.6.0"
   },
   "scripts": {
