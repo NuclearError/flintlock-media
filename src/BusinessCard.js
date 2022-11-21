@@ -6,7 +6,7 @@ import theme from "./theme";
 
 const sectionStyle = css`
   padding: ${theme.spacing.sm}px;
-  background-color: ${theme.colors.greyCard};
+  background-color: ${theme.colors.greyTitleCard};
   border-radius: 2px;
   border: 1px solid ${theme.colors.base.black};
   height: ${theme.spacing.baseDimension - theme.spacing.sm * 2}px 
