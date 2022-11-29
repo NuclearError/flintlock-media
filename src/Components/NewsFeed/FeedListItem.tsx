@@ -2,34 +2,55 @@ import React from "react";
 /** @jsxImportSource @emotion/react */
 import { css, jsx } from "@emotion/react";
 
-import { FeedListItemStyle, FeedListItemHeading, FeedListItemLink, FeedListItemMainImage } from "./styles";
+import { FeedListItemStyle, FeedListItemHeading, FeedListItemLink, FeedListItemMainImage, FeedListItemTextStyle, FeedListItemGridContainer, FeedListItemTextContainerStyle } from "./styles";
 
-export type itemType = {
+export type itemContentType = {
   title: string;
   link: string;
-  date: string;
+  pubDate: string;
 
   description?: string;
   enclosure?: string;
   // TODO: add more
+}
+
+export type itemType = {
+  item: itemContentType;
 };
 
-export const FeedListItem = (item) => {
-  // constants or whatever
 
-  item = item.item;
+{/* TODO: come up with a way to get the pubDate in the datetime in the correct format (unless it already is?) */ }
+{/* TODO: figure out how to display the datetime in a relevant timezone */ }
+
+export const FeedListItem = (item: itemType) => {
+
+  const { title, link, pubDate, description, enclosure } = item.item;
 
   return (
     <li css={css(FeedListItemStyle)}>
-      <a css={css(FeedListItemLink)} href={item.link} target="_blank" rel="noreferrer noopener">
-        <h2 css={css(FeedListItemHeading)}>{item.title}<br />{item.date}</h2>
-      </a>
-      <img
-        src={item.enclosure}
-        alt={item.title}
-        css={css(FeedListItemMainImage)}
-      />
-      <p style={{ fontSize: "20px", color: "white" }}>{item.description}</p>
+      <article>
+        <header>
+          <time css={css(FeedListItemTextStyle)} dateTime="">{pubDate}</time>
+          <a css={css(FeedListItemLink)} href={link} target="_blank" rel="noreferrer noopener">
+            <h2 css={css(FeedListItemHeading)}>{title}</h2>
+          </a>
+        </header>
+        {enclosure
+          ?
+          <div css={css(FeedListItemGridContainer)}>
+            <img
+              src={enclosure}
+              alt={title}
+              css={css(FeedListItemMainImage)}
+            />
+            <div css={css(FeedListItemTextContainerStyle)}>
+              <p css={css(FeedListItemTextStyle)}>{description}</p>
+            </div>
+          </div>
+          :
+          <p css={css(FeedListItemTextStyle)}>{description}</p>
+        }
+      </article>
     </li>
   );
 };

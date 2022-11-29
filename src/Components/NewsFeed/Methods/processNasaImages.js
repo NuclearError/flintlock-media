@@ -6,7 +6,7 @@ export const processNasaImages = (data) => {
   const processedItems = dataContent.map((dataString) => {
 
     // Date
-    const date = dataString.querySelector("pubDate").innerHTML;
+    const pubDate = dataString.querySelector("pubDate").innerHTML;
 
     // Description
     const description = dataString.querySelector("description") ? `${dataString.querySelector("description").innerHTML}` : "";
@@ -20,7 +20,7 @@ export const processNasaImages = (data) => {
     return {
       title: dataString.querySelector("title").innerHTML,
       link: dataString.querySelector("link").innerHTML,
-      date,
+      pubDate,
       description,
       enclosure,
     };

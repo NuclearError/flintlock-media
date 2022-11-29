@@ -92,21 +92,44 @@ export const FeedListItemLink = css`
   }
 `;
 
+export const FeedListItemGridContainer = css`
+  // css grid
+  display: block;
+
+  @media (min-width: ${theme.breakpoints.sm}) {
+    display: grid;
+    gap: 10px;
+    grid-auto-rows: min-content;
+    grid-template-columns: 2fr 2fr;
+  }
+  @media (min-width: ${theme.breakpoints.md}) {
+    grid-template-columns: 1fr 3fr;
+  }
+`;
+
 export const FeedListItemMainImage = css`
   width: 100%;
   display: inline-block;
-  border: 1px solid red;
+  border: 1px solid #000;
+  margin: 0 0 10px;
+
+  grid-column: 2 / 2;
+  grid-row: 1;
 
   @media (min-width: ${theme.breakpoints.sm}) {
-    border: 1px solid orange;
+    margin: 0;
   }
+`;
 
-  @media (min-width: ${theme.breakpoints.md}) {
-    border: 1px solid yellow;
-    width: 60%;
-  }
+export const FeedListItemTextContainerStyle = css`
+  grid-column: 1 / 2;
+  grid-row: 1;
+`;
 
-  @media (min-width: ${theme.breakpoints.lg}) {
-    border: 1px solid green;
-  }
+export const FeedListItemTextStyle = css`
+  margin: 0;
+  display: block;
+  color: ${theme.colors.greyText};
+  font-size: ${theme.fonts.size.base};
+  line-height: ${theme.fonts.lineHeight.base};
 `;
