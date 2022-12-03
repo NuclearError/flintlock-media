@@ -19,6 +19,9 @@ export const processBellingcat = (data) => {
     // Description
     let description = dataString.querySelector("description") ? `${dataString.querySelector("description").innerHTML}` : "";
 
+    var text = description.replace(/<!\[CDATA\[|\]\]>/g, "");
+    console.log("AI TEXT = ", text);
+
     const boopDescription = description.replace(spaceRegex);
     const beepDescription = cdataRegex.exec(boopDescription);
 
@@ -34,7 +37,7 @@ export const processBellingcat = (data) => {
     return {
       title: dataString.querySelector("title").innerHTML,
       link: dataString.querySelector("link").innerHTML,
-      description,
+      description: text,
       pubDate,
     };
   });
