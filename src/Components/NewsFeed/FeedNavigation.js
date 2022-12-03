@@ -26,11 +26,11 @@ export const FeedNavigation = () => {
     getRssData(currentFeed).then((result) => {
       setItems(result);
     });
-  }, [currentFeed]);
+  }, [currentFeed]); // changes when currentFeed is set
 
   useEffect(() => {
     processFeedData(items, currentProcessingFunction);
-    console.log("items[0]: ", items[0])
+    console.log("useEffect says items[0]: ", items[0])
   }, [items, currentProcessingFunction]);
 
   // TODO: figure out if there's a better way to do this
@@ -45,7 +45,11 @@ export const FeedNavigation = () => {
   }
 
   const processFeedData = (data, functionName) => {
+    console.log("processFeedData says currentFeed = ", currentFeed);
+    console.log("processFeedData says current function = ", currentProcessingFunction);
+    console.log("processFeedData says passed 'functionName' = ", functionName);
     const relevantProcessing = eval(`${functionName}1(data)`);
+    console.log("relevantProcessing = ", relevantProcessing[0])
     setFeedItems(relevantProcessing);
   };
 

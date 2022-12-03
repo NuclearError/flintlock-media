@@ -44,11 +44,11 @@ export const FeedListItem = (item: itemType) => {
               css={css(FeedListItemMainImage)}
             />
             <div css={css(FeedListItemTextContainerStyle)}>
-              <p css={css(FeedListItemTextStyle)}>{description}</p>
+              <div css={css(FeedListItemTextStyle)} dangerouslySetInnerHTML={{ __html: description }} />
             </div>
           </div>
           :
-          <p css={css(FeedListItemTextStyle)}>{description}</p>
+          <div css={css(FeedListItemTextStyle)} dangerouslySetInnerHTML={{ __html: description }} />
         }
       </article>
     </li>

@@ -1,9 +1,14 @@
+import React from 'react';
+import DOMPurify from 'dompurify';
+
 const cdataRegex = /<!\[CDATA\[(.*)\]\]>+/gm;
 const spaceRegex = /[\n\r]+/gm;
 
 // For Bellingcat news
 // https://www.bellingcat.com/feed/
 export const processBellingcat = (data) => {
+
+  console.log("processBellingcat function called.")
   // it should be an array but we receive it as an object for some reason; this makes it an array
   const dataContent = Object.values(data);
   const processedItems = dataContent.map((dataString) => {
@@ -19,17 +24,20 @@ export const processBellingcat = (data) => {
     // Description
     let description = dataString.querySelector("description") ? `${dataString.querySelector("description").innerHTML}` : "";
 
-    var text = description.replace(/<!\[CDATA\[|\]\]>/g, "");
+    const text = description.replace(/<!\[CDATA\[|\]\]>/g, "");
     console.log("AI TEXT = ", text);
 
-    const boopDescription = description.replace(spaceRegex);
-    const beepDescription = cdataRegex.exec(boopDescription);
+    const cleanHTML = DOMPurify.sanitize(text);
+    console.log("cleanHTML = ", cleanHTML)
 
+    // const boopDescription = description.replace(spaceRegex);
+    // const beepDescription = cdataRegex.exec(boopDescription);
+    description = cleanHTML;
     console.log("description = ", description);
-    console.log("boopDescription = ", boopDescription)
-    console.log("beepDescription = ", beepDescription)
-    console.log("typeof beep = ", typeof beepDescription)
-    console.log("cdataRegex.lastIndex = ", cdataRegex.lastIndex)
+    // console.log("boopDescription = ", boopDescription)
+    // console.log("beepDescription = ", beepDescription)
+    // console.log("typeof beep = ", typeof beepDescription)
+    // console.log("cdataRegex.lastIndex = ", cdataRegex.lastIndex)
     //console.log("beepDescription[1] = ", beepDescription[1])
     // console.log("beepDescription[0] = ", beepDescription[0])
 
@@ -37,7 +45,7 @@ export const processBellingcat = (data) => {
     return {
       title: dataString.querySelector("title").innerHTML,
       link: dataString.querySelector("link").innerHTML,
-      description: text,
+      description: description,
       pubDate,
     };
   });
