@@ -9,8 +9,8 @@ export type itemContentType = {
   link: string;
   pubDate: string;
 
-  description?: string;
-  enclosure?: string;
+  description?: string | undefined;
+  enclosure?: string | undefined;
   // TODO: add more
 }
 

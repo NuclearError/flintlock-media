@@ -71,6 +71,16 @@ export const FeedListItemStyle = css`
   & + li {
     margin-top: 10px;
   }
+
+  & a {
+    color: ${theme.colors.greyText};
+    text-decoration: underline dotted;
+  &:hover,
+  &:focus,
+  &:active {
+    color: ${theme.colors.greyTextHover};
+  }
+  }
 `;
 
 export const FeedListItemHeading = css`
