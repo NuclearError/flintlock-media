@@ -31,10 +31,12 @@ export const FeedNavigation = () => {
   useEffect(() => {
     processFeedData(items, currentProcessingFunction);
     console.log("useEffect says items[0]: ", items[0])
-  }, [items, currentProcessingFunction]);
+  }, [items]);
 
   // TODO: figure out if there's a better way to do this
   const processNasaImages1 = (data) => {
+    // setCurrentFeed("");
+    // setCurrentProcessingFunction("");
     return processNasaImages(data);
   }
   const processBellingcat1 = (data) => {
@@ -45,11 +47,7 @@ export const FeedNavigation = () => {
   }
 
   const processFeedData = (data, functionName) => {
-    console.log("processFeedData says currentFeed = ", currentFeed);
-    console.log("processFeedData says current function = ", currentProcessingFunction);
-    console.log("processFeedData says passed 'functionName' = ", functionName);
     const relevantProcessing = eval(`${functionName}1(data)`);
-    console.log("relevantProcessing = ", relevantProcessing[0])
     setFeedItems(relevantProcessing);
   };
 
