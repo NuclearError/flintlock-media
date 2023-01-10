@@ -46,12 +46,14 @@ export const FeedButton = css`
   border: none;
   cursor: pointer;
   flex: 1;
-  
+
   & + button {
     margin: 0 0 0 10px;
   }
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: ${theme.colors.greyTitleCardHover};
     color: ${theme.colors.greyDark};
   }
@@ -61,7 +63,7 @@ export const FeedListStyle = css`
   margin: 0;
   padding: 0;
   list-style: none;
-`
+`;
 
 export const FeedListItemStyle = css`
   background: ${theme.colors.greyDark};
@@ -75,11 +77,11 @@ export const FeedListItemStyle = css`
   & a {
     color: ${theme.colors.greyText};
     text-decoration: underline dotted;
-  &:hover,
-  &:focus,
-  &:active {
-    color: ${theme.colors.greyTextHover};
-  }
+    &:hover,
+    &:focus,
+    &:active {
+      color: ${theme.colors.greyTextHover};
+    }
   }
 `;
 
